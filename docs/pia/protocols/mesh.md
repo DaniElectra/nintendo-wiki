@@ -44,21 +44,21 @@ The following version numbers are advertised during the [connection request](/do
 # Join request
 *Up to 5.10:*
 
-| Type             | Description        |
-|------------------|--------------------|
-| Uint8            | Message type (1)   |
-| Uint8            | Station index      |
-| Uint16           | Padding (always 0) |
-| [StationAddress] | Station address    |
-| Uint32           | Ack id             |
+| Type             | Description                 |
+|------------------|-----------------------------|
+| Uint8            | Message type (1)            |
+| Uint8            | Station index (always 0xFD) |
+| Uint16           | Padding (always 0)          |
+| [StationAddress] | Station address             |
+| Uint32           | Ack id                      |
 
 *5.11 - 5.18:*
 
-| Type   | Description      |
-|--------|------------------|
-| Uint8  | Message type (1) |
-| Uint8  | Station index    |
-| Uint32 | Ack id           |
+| Type   | Description                 |
+|--------|-----------------------------|
+| Uint8  | Message type (1)            |
+| Uint8  | Station index (always 0xFD) |
+| Uint32 | Ack id                      |
 
 # Join response (success)
 If the join response is too big to be sent in a single packet it is split into fragments.

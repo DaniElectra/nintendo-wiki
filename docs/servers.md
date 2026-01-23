@@ -10,6 +10,7 @@ Table of contents:
 * [Switch](#switch)
 * [Wii U](#wii-u)
 * [3DS](#3ds)
+* [Mobile apps](#mobile-apps)
 * [Developers](#developers)
 * [Internal](#internal)
 
@@ -30,6 +31,7 @@ Table of contents:
 #### Switch Users ([docs](/docs/switch/baas))
 * `https://e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com`
 * `https://cdn-image-e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com`
+* `https://m-lp1.baas.nintendo.com`
 
 #### Nintendo Accounts ([docs](/docs/switch/account))
 * `https://accounts.nintendo.com`
@@ -37,15 +39,23 @@ Table of contents:
 * `https://api.accounts.nintendo.com`
 * `https://c-lp1.accounts.nintendo.com`
 
-#### Push Notifications
-* `https://god.p01.lp1.penne.srv.nintendo.net`
-* `https://val.p01.lp1.penne.srv.nintendo.net`
-* `https://fro-2.p01.lp1.penne.srv.nintendo.net`
+#### Game Servers (NPLN) ([docs](/docs/npln))
+* `<tenant id>.lp1.t.npln.srv.nintendo.net` (game server)
+  * **Example:** `t-e96531c6-lp1.lp1.t.npln.srv.nintendo.net`
+* `npln-lp1-latency-<region>-<id>-green-agones.lp1.t.npln.srv.nintendo.net` (latency measurement)
+  * **Example:** `npln-lp1-latency-eu-01-green-agones.lp1.t.npln.srv.nintendo.net`
+* `s01.lp1.s.npln.srv.nintendo.net` (STUN)
+* `s01.lp1.u.npln.srv.nintendo.net` (TURN)
 
 #### eLicenses
 * `https://dragons.p01.lp1.dragons.nintendo.net`
 * `https://dragonst.p01.lp1.dragons.nintendo.net`
 * `https://tigers.p01.lp1.dragons.nintendo.net`
+
+#### Push Notifications
+* `https://god.p01.lp1.penne.srv.nintendo.net`
+* `https://val.p01.lp1.penne.srv.nintendo.net`
+* `https://fro-<id>.p01.lp1.penne.srv.nintendo.net`
 
 #### System Updates
 * `https://sun.p01.lp1.d4c.srv.nintendo.net`
@@ -74,10 +84,15 @@ Table of contents:
 #### NAT Check ([docs](/docs/nat-check))
 * `nncs1.p01.lp1.n.n.srv.nintendo.net`
 * `nncs2.p01.lp1.n.n.srv.nintendo.net`
+* `nncs1-lp1.n.n.srv.nintendo.net`
+* `nncs2-lp1.n.n.srv.nintendo.net`
 
 #### System Transfer
 * `https://transfer.p01.lp1.banco.srv.nintendo.net`
 * `https://download.p01.lp1.banco.srv.nintendo.net`
+
+#### Online Play Invitations ([docs](/docs/switch/online-play-invitations))
+* `https://app.lp1.five.nintendo.net`
 
 #### News
 * `https://list.p01.lp1.bcat.srv.nintendo.net`
@@ -100,15 +115,14 @@ Table of contents:
 * `https://gw.p01.lp1.vermillion.srv.nintendo.net` (virtual game cards)
 * `https://p01.lp1.znma.srv.nintendo.net` (parental controls)
 * `https://capi.lp1.op2.nintendo.net` ([NSO membership verification](/docs/switch/nso-verification))
-* `https://app.lp1.five.nintendo.net` (friend invitations)
 * `https://p01.lp1.savanna.srv.nintendo.net` (eShop)
 * `https://lp1.nso.nintendo.net` (NSO applet)
 * `https://fw-api.lp1.nso.nintendo.net` ([NSO rewards](/docs/switch/nso-reward))
 * `service-status.p01.lp1.smn.srv.nintendo.net` (service status)
+* `https://pegasus.p01.lp1.pegasus.srv.nintendo.net` (playable platform list)
 
 Unknown:
 
-* `*.p01.lp1.pegasus.srv.nintendo.net`
 * `*.p01.lp1.sprofile.srv.nintendo.net`
 * `*.p01.lp1.p01-aaab.srv.nintendo.net`
 * `*.p01.lp1.civil.nintendo.net`
@@ -146,6 +160,7 @@ Unknown:
 * `https://aadmin-lp1.ndas.mng.nintendo.net` (internal)
 
 #### Switch Users ([docs](/docs/switch/baas))
+* `https://m-lp1.baas.nintendo.com`
 * `https://e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com` (lp1)
 * `https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com` (dd1)
 * `https://d9c8ea0e17f68bdeab8674c59f6fabda-sb.baas.nintendo.com` (dp1)
@@ -202,6 +217,8 @@ Unknown:
 * `https://pp.lp1.sata.srv.nintendo.net`
 * `https://scsi-policy-lp1.cdn.nintendo.net`
 * `https://lp1.sprofile.srv.nintendo.net`
+* `https://scsi-download.lp1.scsi.srv.nintendo.net`
+* `https://scsi-upload-lp1.s3.us-west-2.amazonaws.com`
 
 #### eShop Services ([docs](/docs/switch/rest))
 * `https://ecs-lp1.hac.shop.nintendo.net`
@@ -227,6 +244,8 @@ Unknown:
 * `https://atum.hac.lp1.d4c.nintendo.net` (Akamai)
 * `https://atum-eda.hac.lp1.d4c.nintendo.net` (LLNW)
 * `https://atum-4ff.hac.lp1.d4c.nintendo.net` (Lumen)
+* `https://atum-5a8.hac.lp1.d4c.nintendo.net` (Fastly)
+* `https://atum-f03.hac.lp1.d4c.nintendo.net` (Cloudflare)
 
 #### Push Notifications
 Old ([docs](/docs/switch/npns)):
@@ -239,7 +258,7 @@ Old ([docs](/docs/switch/npns)):
 New ([docs](/docs/switch/penne)):
 * `https://god.hac.lp1.penne.srv.nintendo.net`
 * `https://val.hac.lp1.penne.srv.nintendo.net`
-* `https://fro-8.hac.lp1.penne.srv.nintendo.net`
+* `https://fro-<id>.hac.lp1.penne.srv.nintendo.net`
 
 #### Telemetry ([docs](/docs/switch/telemetry))
 * `https://receive-lp1.dg.srv.nintendo.net` (play reports)
@@ -273,6 +292,7 @@ New ([docs](/docs/switch/penne)):
 * `https://bvc-hac-lp1.cdn.nintendo.net` (browser version check)
 * `https://api.sect.srv.nintendo.net`
 * `https://gw.hac.lp1.vermillion.srv.nintendo.net` ([virtual game cards](/docs/switch/vermillion))
+* `https://pegasus.hac.lp1.pegasus.srv.nintendo.net` (playable platform list)
 
 # Wii U
 #### Account Server ([docs](/docs/wiiu/account))
@@ -372,6 +392,58 @@ New ([docs](/docs/switch/penne)):
 
 #### Other Servers
 * `https://ctr-o2fgs.cdn.nintendo.net`
+
+# Mobile Apps
+#### General
+* `https://accounts.nintendo.com`
+* `https://api.accounts.nintendo.com`
+* `https://cdn-image-e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com` (user profile images)
+* `https://cdn-mii.accounts.nintendo.com` (mii images)
+* `https://atum-img-lp1.cdn.nintendo.net` (game icons)
+
+#### Nintendo Switch App
+General:
+* `https://api-lp1.znc.srv.nintendo.net`
+* `https://cdn.znc.srv.nintendo.net`
+* `https://media-dl.wc.lp1.nega.srv.nintendo.net` (album downloads)
+
+Apps:
+* `https://web.sd.lp1.acbaa.srv.nintendo.net` (NookLink)
+* `https://app.smashbros.nintendo.net` (Smash World)
+* `https://www-aaaba-lp1-hac.cdn.nintendo.net` (Smash World)
+* `https://app.splatoon2.nintendo.net` (SplatNet 2)
+* `https://api.lp1.av5ja.srv.nintendo.net` (SplatNet 3)
+* `https://api.lp1.usagi.srv.nintendo.net` (SplatNet 3)
+* `https://api.lp1.87abc152.srv.nintendo.net` (Zelda Notes)
+
+#### Nintendo Music
+* `251737943c34c5e6ae451f19ff36c2bb.baas.nintendo.com`
+* `https://api.m.nintendo.com`
+* `https://image-assets.m.nintendo.com`
+* `https://media-assets.m.nintendo.com`
+
+#### Nintendo Store
+* `https://cms-front.znej.nintendo.com`
+* `https://app-api.znej.nintendo.com`
+
+#### Nintendo Today
+* `https://55f574e737db5d869cac906761c0c37e.baas.nintendo.com`
+* `https://prod-server.de4taiqu.srv.nintendo.net`
+* `https://prod-znsa.de4taiqu.srv.nintendo.net`
+* `https://prod-webview-znsa.de4taiqu.srv.nintendo.net`
+
+#### Parental Controls
+* `https://app.lp1.znma.srv.nintendo.net` (parental controls)
+
+#### Super Mario Run
+* `https://1d73367a8bc4b849f5286dc68416acfd.baas.nintendo.com`
+* `https://api.supermariorun.com`
+* `https://download-cdn-supermariorun.akamaized.net`
+
+#### Mario Kart Tour
+* `https://a6913b7b80402974409b47079c29d775.baas.nintendo.com`
+* `https://api.mariokarttour.com`
+* `https://download-cdn-mariokarttour.akamaized.net`
 
 # Developers
 * https://developer.nintendo.com (developer portal)

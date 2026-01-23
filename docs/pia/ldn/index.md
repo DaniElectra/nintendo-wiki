@@ -65,10 +65,10 @@ Given a 16-byte input key and a buffer of arbitrary size, encryption keys are de
 
 For data frames, the input key is `f1e7018419a84f711da714c2cf919c9c` and the input buffer looks as follows:
 
-| Offset | Size | Description                                           |
-|--------|------|-------------------------------------------------------|
-| 0x0    | 16   | Network key (generated when the network is created)   |
-| 0x10   | N    | Password specified by game (optional, up to 64 bytes) |
+| Offset | Size | Description                                                                        |
+|--------|------|------------------------------------------------------------------------------------|
+| 0x0    | 16   | Network key (generated when the network is created)                                |
+| 0x10   | N    | [Password specified by game](/docs/pia/ldn/passphrases) (optional, up to 64 bytes) |
 
 For advertisement frames, [see below](#advertisement-frame).
 
@@ -169,7 +169,7 @@ Every participant has the following structure:
 | 0x24   | 2      | `0x03FF`: Channel<br>`0xFC00`: Band (2 = 2.4 GHz, 5 = 5 GHz, 6 = 6 GHz)                                                                              |
 | 0x26   | 1      | Maximum number of participants                                                                                                                       |
 | 0x27   | 1      | Current number of participants (N)                                                                                                                   |
-| 0x28   | 48 x N | [Participant](#participant-info) list                                                                                                                |
+| 0x28   | 48 x N | Participant list (see below)                                                                                                                         |
 |        | 2      | Application data size                                                                                                                                |
 |        |        | [Application data](/docs/pia/ldn/application-data)                                                                                                   |
 

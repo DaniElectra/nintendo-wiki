@@ -99,5 +99,3 @@ The header has room for 16 languages but only 12 are actually used. The remainin
 | 9     | Portuguese            |
 | 10    | Russian               |
 | 11    | Chinese (traditional) |
-
-<!-- | 0x20 | 0x36B0 or 0x12060 | Icon data | -->

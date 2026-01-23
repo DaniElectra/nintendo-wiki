@@ -33,3 +33,4 @@ title: Documentation
 * [Data Store Codes](/docs/misc/datastore-codes)
 * [DDL Parse Trees](/docs/ddl)
 * [Playground](https://nintendo-playground.com)
+* [Credits](/docs/credits)

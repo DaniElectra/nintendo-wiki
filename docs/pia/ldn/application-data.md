@@ -8,6 +8,8 @@ The application data field allows the host of an [LDN network](/docs/pia/ldn) to
 
 The application data starts with a short header, which is followed by game-specific application data.
 
+**Note:** the values in this header seem to be stored in little-endian byte order.
+
 5.2 - 5.7:
 
 | Offset | Size | Description                                                   |
@@ -32,7 +34,7 @@ The application data starts with a short header, which is followed by game-speci
 | 0x10   | 8    | Always 0                                                      |
 | 0x18   |      | [Application data](#application-data)                         |
 
-5.39:
+5.29 - 5.39:
 
 | Offset | Size | Description                                                   |
 |--------|------|---------------------------------------------------------------|
@@ -44,6 +46,21 @@ The application data starts with a short header, which is followed by game-speci
 | 0xC    | 4    | Session param (random)                                        |
 | 0x10   |      | [Application data](#application-data)                         |
 
+6.41:
+
+| Offset | Size | Description                                                   |
+|--------|------|---------------------------------------------------------------|
+| 0x0    | 2    | System property data size (0x5C)                              |
+| 0x2    | 1    | [System communication version](#system-communication-version) |
+| 0x3    | 2    | Application communication version                             |
+| 0x5    | 16   | User password                                                 |
+| 0x15   | 1    | Is player limit enabled                                       |
+| 0x16   | 1    | Number of players                                             |
+| 0x17   | 4    | Player name size                                              |
+| 0x1B   | 1    | Player name encoding (1 =  UTF-8, 2 = UTF-16)                 |
+| 0x1C   | 64   | Player name                                                   |
+| 0x5C   |      | [Application data](#application-data)                         |
+
 ### System Communication Version
 
 | Version | Pia Version |
@@ -53,7 +70,8 @@ The application data starts with a short header, which is followed by game-speci
 | 3       | 5.10        |
 | 4       | 5.11 - 5.17 |
 | 5       | 5.18        |
-| 8       | 5.39        |
+| 8       | 5.29 - 5.39 |
+| 22      | 6.41        |
 
 ### Application Data
 The application data depends on the game:

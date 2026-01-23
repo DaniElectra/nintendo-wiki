@@ -50,18 +50,18 @@ When a reliable sliding window is used, messages are wrapped as follows:
 | 0x9    | 8*N  | Multicast [constant ids](/docs/pia/types#constant-id) |
 |        |      | Payload                                               |
 
-*5.31:*
+*5.29 - 5.31:*
 
-| Offset | Size | Description     |
-|--------|------|-----------------|
-| 0x0    | 1    | [Flags](#flags) |
-| 0x1    | 1    | Stream id       |
-| 0x2    | 2    | Payload size    |
-| 0x4    | 2    | Sequence id     |
-| 0x6    | 2    | Unknown         |
-| 0x8    | 1    | Unknown         |
-| 0x9    | 4*N  | Unknown         |
-|        |      | Payload         |
+| Offset | Size | Description                                           |
+|--------|------|-------------------------------------------------------|
+| 0x0    | 1    | [Flags](#flags)                                       |
+| 0x1    | 1    | Stream id                                             |
+| 0x2    | 2    | Payload size                                          |
+| 0x4    | 2    | Sequence id                                           |
+| 0x6    | 2    | Lowest sequence id pending ack                        |
+| 0x8    | 1    | Number of multicast constant ids (N)                  |
+| 0x9    | 4*N  | Multicast [constant ids](/docs/pia/types#constant-id) |
+|        |      | Payload                                               |
 
 ### Flags
 

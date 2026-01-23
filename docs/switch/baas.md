@@ -4,13 +4,16 @@ toc: true
 title: Account Server (BAAS)
 ---
 
-URL: https://e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com
-
 The baas server manages user accounts and friendships on the Nintendo Switch.
 
 Depending on the method, this server takes form or json encoded requests. The server always responds with json encoding.
 
+The main URL is https://e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com.
+
+On 21.0.0 and later, the account sysmodule uses https://m-lp1.baas.nintendo.com instead. This server only accepts connections with a valid client certificate. The friends sysmodule still uses the previous URL.
+
 ## Headers
+**e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com:**
 
 | Header                | Description                                                                                                                                                                                                                                                                           |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,7 +21,7 @@ Depending on the method, this server takes form or json encoded requests. The se
 | User-Agent            | [User agent](#user-agents)                                                                                                                                                                                                                                                            |
 | Accept                | `*/*`                                                                                                                                                                                                                                                                                 |
 | Authorization         | Access token received from <code><a href="#post-100applicationtoken">/1.0.0/application/token</a></code>, <code><a href="#post-100login">/1.0.0/login</a></code> or <code><a href="#post-100federation">/1.0.0/federation</a></code>, prefixed with `Bearer `. Depends on the method. |
-| X-Nintendo-PowerState | `FA` (fully awake) or `HA` (half awake). This header is only sent in the <code><a href="post-100applicationtoken">/1.0.0/application/token</a></code> and <code><a href="#post-100login">/1.0.0/login</a></code> requests.                                                            |
+| X-Nintendo-PowerState | `FA` (fully awake) or `HA` (half awake). This header is only sent in the <code><a href="#post-100applicationtoken">/1.0.0/application/token</a></code> and <code><a href="#post-100login">/1.0.0/login</a></code> requests.                                                           |
 
 The following headers are only sent in POST, PUT, PATCH and DELETE requests.
 
@@ -35,6 +38,29 @@ If the content type is changed, and the request is performed by the account sysm
 | Content-Length | Content length                                      |
 
 If the content type is changed, and the request is performed by the friends sysmodule, the `Content-Type` header appears between the `Accept` and `Authorization` headers instead.
+
+**m-lp1.baas.nintendo.com:**
+
+| Header     | Description                |
+| ---------- | -------------------------- |
+| Host       | `m-lp1.baas.nintendo.com`  |
+| Accept     | `*/*`                      |
+| User-Agent | [User agent](#user-agents) |
+
+The following headers are only sent with specific requests:
+
+| Header                | Description                                                                                                                                                                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Content-Type          | Content type                                                                                                                                                                                                                                                  |
+| Authorization         | Access token received from <code><a href="#post-100applicationtoken">/1.0.0/application/token</a></code>, <code><a href="#post-100login">/1.0.0/login</a></code> or <code><a href="#post-100federation">/1.0.0/federation</a></code>, prefixed with `Bearer ` |
+| X-Nintendo-PowerState | `FA` (fully awake) or `HA` (half awake)                                                                                                                                                                                                                       |
+| Content-Length        | Content length                                                                                                                                                                                                                                                |
+
+The `Content-Type` and `Content-Length` headers are only sent in POST, PUT, PATCH and DELETE requests.
+
+The `Authorization` header is sent in all requests except for `/application/token`.
+
+The `X-Nintendo-PowerState` header is only sent in the <code><a href="#post-100applicationtoken">/1.0.0/application/token</a></code> and <code><a href="#post-100login">/1.0.0/login</a></code> requests.
 
 ### User Agents
 The user agents below are taken from the account sysmodule. If the request is made by the friends sysmodule replace `nnAccount` by `nnFriends`.
@@ -53,7 +79,8 @@ The user agents below are taken from the account sysmodule. If the request is ma
 | 17.0.0 - 17.0.1 | `libcurl (nnAccount; 789f928b-138e-4b2f-afeb-1acae821d897; SDK 17.5.0.0; Add-on 17.5.0.0)` |
 | 18.0.0 - 18.1.0 | `libcurl (nnAccount; 789f928b-138e-4b2f-afeb-1acae821d897; SDK 18.3.0.0; Add-on 18.3.0.0)` |
 | 19.0.0 - 19.0.1 | `libcurl (nnAccount; 789f928b-138e-4b2f-afeb-1acae821d897; SDK 19.3.0.0; Add-on 19.3.0.0)` |
-| 20.0.0 - 20.1.1 | `libcurl (nnAccount; 789f928b-138e-4b2f-afeb-1acae821d897; SDK 20.5.4.0; Add-on 20.5.4.0)` |
+| 20.0.0 - 20.5.0 | `libcurl (nnAccount; 789f928b-138e-4b2f-afeb-1acae821d897; SDK 20.5.4.0; Add-on 20.5.4.0)` |
+| 21.0.0 - 21.1.0 | `libcurl (nnAccount; 789f928b-138e-4b2f-afeb-1acae821d897; SDK 21.4.0.0; Add-on 21.4.0.0)` |
 
 ## Methods
 The following methods do not require an access token:

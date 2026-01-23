@@ -74,7 +74,8 @@ In 20.0.0 and later, the user agent is back again, between the `Accept` and `Con
 | 15.0.0 - 15.0.1 | `libcurl (nnDauth; 16f4553f-9eee-4e39-9b61-59bc7c99b7c8; SDK 15.3.0.0)`                      |
 | 16.0.0 - 16.1.0 | `libcurl (nnDauth; 16f4553f-9eee-4e39-9b61-59bc7c99b7c8; SDK 16.2.0.0)`                      |
 | 17.0.0 - 17.0.1 | `libcurl (nnDauth; 16f4553f-9eee-4e39-9b61-59bc7c99b7c8; SDK 17.5.0.0)`                      |
-| 20.0.0 - 20.4.0 | `libcurl (nnDauth; 16f4553f-9eee-4e39-9b61-59bc7c99b7c8; SDK 20.5.4.0)`                      |
+| 20.0.0 - 20.5.0 | `libcurl (nnDauth; 16f4553f-9eee-4e39-9b61-59bc7c99b7c8; SDK 20.5.4.0)`                      |
+| 21.0.0 - 21.1.0 | `libcurl (nnDauth; 16f4553f-9eee-4e39-9b61-59bc7c99b7c8; SDK 21.4.0.0)`                      |
 
 No user agent is present between system version 18.0.0 and 19.0.1.
 
@@ -125,7 +126,7 @@ The following methods return a different kind of device token:
 | 7.0.0 - 8.1.1   | v5  |
 | 9.0.0 - 12.1.0  | v6  |
 | 13.0.0 - 19.0.1 | v7  |
-| 20.0.0 - 20.4.0 | v8  |
+| 20.0.0 - 21.1.0 | v8  |
 
 #### API Changes
 
@@ -300,6 +301,7 @@ The request is the same as the [`/device_auth_tokens`](#device-token-request) re
 | 17.0.0 - 18.1.0 | 17             |
 | 19.0.0 - 19.0.1 | 19             |
 | 20.0.0 - 20.4.0 | 20             |
+| 21.0.0 - 21.1.0 | 21             |
 
 ## Known Client IDs
 Device tokens:
@@ -356,9 +358,10 @@ Most errors use HTTP status code 400. The only known exception is error 0009, wh
 | 0007 | System update is required.    |
 | 0008 | Device has been banned.       |
 | 0009 | Internal Server Error.        |
-| 0010 | ?                             |
-| 0011 | ?                             |
-| 0013 | ?                             |
+| 0010 | Under maintenance.            |
+| 0011 | Invalid client.               |
+| 0012 | API not found.                |
+| 0013 | Invalid certificate.          |
 | 0014 | Invalid parameter in request. |
 | 0015 | Invalid parameter in request. |
 | 0016 | Invalid parameter in request. |

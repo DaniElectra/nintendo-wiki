@@ -4,19 +4,177 @@ toc: true
 title: Switch Error Codes
 ---
 
-# Error Categories
+An error code contains a module id and a module-specific code, separated by a dash. For example: `2306-0502`.
 
-| Error Codes | Description                                                                             |
-|-------------|-----------------------------------------------------------------------------------------|
-| 2123-XXXX   | [SSL / TLS](#ssl-error-codes)                                                           |
-| 2124-XXXX   | [Account services](#account-error-codes)                                                |
-| 2155-XXXX   | [Curl (http requests)](#curl-error-codes)                                               |
-| 2181-XXXX   | [DAuth (device authentication)](#dauth-error-codes)                                     |
-| 2306-XXXX   | [NEX (game servers)](#nex-error-codes)<br>[Error descriptions](#nex-error-descriptions) |
-| 2321-XXXX   | NPLN (new game servers)                                                                 |
-| 2618-XXXX   | [PIA (peer to peer)](#pia-error-codes)                                                  |
-| 2623-XXXX   | [Eagle (relay servers)](#eagle-error-codes)                                             |
-| 2815-XXXX   | [Coral (voice chat)](#coral-error-codes)                                                |
+The following module ids are currently known:
+
+| Code | Name             | Description                                                                             |
+|------|------------------|-----------------------------------------------------------------------------------------|
+| 2001 | `svc`            | Supervisor calls (syscalls)                                                             |
+| 2002 | `fs`             | Filesystem                                                                              |
+| 2003 | `os`             | Operating system                                                                        |
+| 2004 | `htcs`           | Host target connection services                                                         |
+| 2005 | `ncm`            | Nintendo content manager                                                                |
+| 2006 | `dd`             | Device address space                                                                    |
+| 2007 | `osdbg`          | OS debugging                                                                            |
+| 2008 | `lr`             | Location resolver                                                                       |
+| 2009 | `ldr`            | Loader services                                                                         |
+| 2010 | `sf`             | Service framework                                                                       |
+| 2011 | `sf::hipc`       | Service framework (IPC)                                                                 |
+| 2012 | `tma`            | Target manager agent                                                                    |
+| 2013 | `dmnt`           | Debug monitor                                                                           |
+| 2014 | `gds`            | ?                                                                                       |
+| 2015 | `pm`             | Process manager                                                                         |
+| 2016 | `ns`             | Nintendo shell services                                                                 |
+| 2017 | `bsdsocket`      | Berkeley sockets                                                                        |
+| 2018 | `htc`            | Host target connections                                                                 |
+| 2019 | `tsc`            | ?                                                                                       |
+| 2020 | `kvdb`           | Key-value database                                                                      |
+| 2021 | `sm`             | Service manager                                                                         |
+| 2022 | `ro`             | Loader symbol registration                                                              |
+| 2023 | `gc`             | ?                                                                                       |
+| 2024 | `sdmmc`          | MMC storage                                                                             |
+| 2025 | `ovln`           | Overlay notifications                                                                   |
+| 2026 | `spl`            | Secure platform services                                                                |
+| 2027 | `socket`         | Socket API                                                                              |
+| 2028 | `dt`             | Device tree                                                                             |
+| 2029 | `htclow`         | Host target connections (low level)                                                     |
+| 2030 | `ddsf`           | Device driver service framework                                                         |
+| 2031 | `htcfs`          | Host target connections (filesystem)                                                    |
+| 2032 | `async`          | Asynchronous tasks                                                                      |
+| 2033 | `util`           | Utilities                                                                               |
+| 2035 | `tipc`           | Tiny IPC                                                                                |
+| 2037 | `anif`           | ?                                                                                       |
+| 2100 | `eth`            | Ethernet                                                                                |
+| 2101 | `i2c`            | I2C (hardware communication)                                                            |
+| 2102 | `gpio`           | GPIO (hardware communication)                                                           |
+| 2103 | `uart`           | UART (hardware communication)                                                           |
+| 2104 | `cpad`           | Classic controller                                                                      |
+| 2105 | `settings`       | System settings                                                                         |
+| 2106 | `ftm`            | Touchscreen                                                                             |
+| 2107 | `wlan`           | WLAN                                                                                    |
+| 2108 | `xcd`            | NX controller driver                                                                    |
+| 2109 | `tmp451`         | Temperature sensor                                                                      |
+| 2110 | `nifm`           | Network interface manager (internet connection)                                         |
+| 2111 | `codec`          | Audio decoding                                                                          |
+| 2112 | `lsm6ds3`        | Accelerometer / gyroscope                                                               |
+| 2113 | `bluetooth`      | Bluetooth                                                                               |
+| 2114 | `vi`             | Video display                                                                           |
+| 2115 | `nfp`            | Amiibo                                                                                  |
+| 2116 | `time`           | Time services                                                                           |
+| 2117 | `fgm`            | Frequency governer module                                                               |
+| 2118 | `oe`             | Operating environment (battery, performance, etc.)                                      |
+| 2119 | `bh1730fvc`      | Light sensor                                                                            |
+| 2120 | `pcie`           | PCIe (hardware communication)                                                           |
+| 2121 | `friends`        | Friends                                                                                 |
+| 2122 | `bcat`           | Background content delivery (used for news and game data)                               |
+| 2123 | `ssl`            | [SSL / TLS](#ssl-error-codes)                                                           |
+| 2124 | `account`        | [Account services](#account-error-codes)                                                |
+| 2125 | `news`           | News                                                                                    |
+| 2126 | `mii`            | Miis                                                                                    |
+| 2127 | `nfc`            | Near-field communication                                                                |
+| 2128 | `am`             | Applet manager                                                                          |
+| 2129 | `prepo`          | Play reports (telemetry)                                                                |
+| 2130 | `ahid`           | ?                                                                                       |
+| 2131 | `applet`         | Applets                                                                                 |
+| 2132 | `ae`             | Applet environment                                                                      |
+| 2133 | `pcv`            | Power control / voltage services                                                        |
+| 2134 | `usb::pd`        | USB power delivery                                                                      |
+| 2135 | `bpc`            | Board power control                                                                     |
+| 2136 | `psm`            | Power management                                                                        |
+| 2137 | `nim`            | [Network installation manager](#nim-error-codes)                                        |
+| 2138 | `psc`            | Power state control                                                                     |
+| 2139 | `tc`             | Temperature control                                                                     |
+| 2140 | `usb`            | USB                                                                                     |
+| 2141 | `nsd`            | Network service discovery                                                               |
+| 2142 | `pctl`           | Parental controls                                                                       |
+| 2143 | `btm`            | Bluetooth manager                                                                       |
+| 2144 | `la`             | Library applets                                                                         |
+| 2145 | `es`             | E-ticket services                                                                       |
+| 2146 | `ngc`            | Profanity checks                                                                        |
+| 2147 | `erpt`           | Error report generation                                                                 |
+| 2148 | `apm`            | Applet profile manager                                                                  |
+| 2149 | `cec`            | CEC (HDMI)                                                                              |
+| 2150 | `profiler`       | CPU profiler                                                                            |
+| 2151 | `eupld`          | Error report uploads                                                                    |
+| 2152 | `libde`          | Icon downloads                                                                          |
+| 2153 | `audio`          | Audio                                                                                   |
+| 2154 | `npns`           | Nintendo push notification service                                                      |
+| 2155 | `http`           | [HTTP requests (curl)](#http-error-codes)                                               |
+| 2156 | `idle`           | Auto-sleep                                                                              |
+| 2157 | `arp`            | Application registry                                                                    |
+| 2158 | `updater`        | Updater                                                                                 |
+| 2159 | `swkbd`          | Software keyboard                                                                       |
+| 2160 | `netdiag`        | Network checks                                                                          |
+| 2161 | `nfc::mifare`    | Mifare                                                                                  |
+| 2162 | `err`            | Errors                                                                                  |
+| 2163 | `fatal`          | Fatal errors                                                                            |
+| 2164 | `ec`             | E-commerce services                                                                     |
+| 2165 | `spsm`           | Power state                                                                             |
+| 2166 | `aoc`            | Add-on content                                                                          |
+| 2167 | `bgtc`           | Background tasks                                                                        |
+| 2168 | `creport`        | Crash reports                                                                           |
+| 2169 | `sasbus`         | SAS bus                                                                                 |
+| 2170 | `pl`             | Platform services                                                                       |
+| 2171 | `cdmsc`          | USB mass storage                                                                        |
+| 2172 | `audioctrl`      | Audio control                                                                           |
+| 2173 | `lbl`            | Light sensor                                                                            |
+| 2175 | `jit`            | JIT compilation                                                                         |
+| 2176 | `hdcp`           | HDCP                                                                                    |
+| 2177 | `omm`            | Operation mode manager                                                                  |
+| 2178 | `pdm`            | Play statistics database                                                                |
+| 2179 | `olsc`           | Online save storage                                                                     |
+| 2180 | `srepo`          | System reports                                                                          |
+| 2181 | `dauth`          | [Device authentication](#dauth-error-codes)                                             |
+| 2182 | `stdfu`          | ?                                                                                       |
+| 2183 | `dbg`            | Debugging                                                                               |
+| 2184 | `cdacm`          | USB ACM                                                                                 |
+| 2185 | `tcap`           | Thermal coordinator advanced policy                                                     |
+| 2186 | `dhcps`          | DHCP services                                                                           |
+| 2187 | `spi`            | SPI                                                                                     |
+| 2188 | `avm`            | Application version manager                                                             |
+| 2189 | `pwm`            | PWM bus                                                                                 |
+| 2190 | `dnsserver`      | DNS server                                                                              |
+| 2191 | `rtc`            | Real time clock                                                                         |
+| 2192 | `regulator`      | Regulator                                                                               |
+| 2193 | `led`            | LED                                                                                     |
+| 2194 | `htctool`        | Host target connection tool                                                             |
+| 2195 | `sio`            | Lite controller                                                                         |
+| 2196 | `pcm`            | Power / voltage reader                                                                  |
+| 2197 | `clkrst`         | Clock resets                                                                            |
+| 2198 | `powctl`         | Power controller                                                                        |
+| 2199 | `hiddriver`      | HID driver                                                                              |
+| 2200 | `dma`            | Direct memory access                                                                    |
+| 2202 | `hid`            | Humand interface device                                                                 |
+| 2203 | `ldn`            | Local device network                                                                    |
+| 2204 | `cs`             | ?                                                                                       |
+| 2205 | `irsensor`       | IR sensor                                                                               |
+| 2206 | `capsrv`         | Screenshots                                                                             |
+| 2207 | `mm`             | ?                                                                                       |
+| 2208 | `manu`           | Manufacturing services                                                                  |
+| 2209 | `atk`            | Audio toolkit (NintendoWare)                                                            |
+| 2210 | `web`            | Web browser                                                                             |
+| 2211 | `lcs`            | Local content share                                                                     |
+| 2212 | `grc`            | Game recording                                                                          |
+| 2213 | `repair`         | Repair                                                                                  |
+| 2214 | `album`          | Album                                                                                   |
+| 2215 | `rid`            | Demo                                                                                    |
+| 2216 | `migration`      | User migration                                                                          |
+| 2217 | `migration::idc` | User migration (IDC)                                                                    |
+| 2218 | `hidbus`         | HID bus                                                                                 |
+| 2219 | `ens`            | Extended network service (game-specific HTTP services)                                  |
+| 2220 | `nd`             | Neighbour detection                                                                     |
+| 2221 | `ndd`            | Neighbour device protocol                                                               |
+| 2222 | `toycon`         | Toycon                                                                                  |
+| 2223 | `websocket`      | Websockets                                                                              |
+| 2224 | `socketio`       | Socket I/O                                                                              |
+| 2306 | `nex`            | [Game servers (old)](#nex-error-codes)<br>[Error descriptions](#nex-error-descriptions) |
+| 2318 | `pia`            | [Peer to peer (new)](#pia-error-codes-new)                                              |
+| 2321 | `npln`           | Game servers (new)                                                                      |
+| 2618 | `pia`            | [Peer to peer (old)](#pia-error-codes)                                                  |
+| 2623 | `eagle`          | [Relay servers](#eagle-error-codes)                                                     |
+| 2811 |                  | Nintendo eShop                                                                          |
+| 2815 | `coral`          | [Voice chat](#coral-error-codes)                                                        |
 
 # SSL Error Codes
 
@@ -133,9 +291,10 @@ The following errors are shown when the [DAuth server](/docs/switch/dauth) retur
 | 2124-4507 | 0007 | System update is required.    |
 | 2124-4508 | 0008 | Device has been banned.       |
 | 2124-4509 | 0009 | Internal Server Error.        |
-| 2124-4510 | 0010 |                               |
-| 2124-4511 | 0011 |                               |
-| 2124-4513 | 0013 |                               |
+| 2124-4510 | 0010 | Under maintenance.            |
+| 2124-4511 | 0011 | Invalid client.               |
+| 2124-4512 | 0012 | API not found.                |
+| 2124-4513 | 0013 | Invalid certificate.          |
 | 2124-4514 | 0014 | Invalid parameter in request. |
 | 2124-4515 | 0015 | Invalid parameter in request. |
 | 2124-4516 | 0016 | Invalid parameter in request. |
@@ -299,14 +458,41 @@ These errors are related to the [Switch account server](/docs/switch/baas).
 | 2124-7504  | 504 (Gateway Timeout)                 |
 | 2124-7505  | 505 (HTTP Version Not Supported)      |
 
-# Curl Error Codes
+# NIM Error Codes
 
-| Error Codes | Description                      |
-|-------------|----------------------------------|
-| 0100 - 0599 | [HTTP errors](#curl-errors-http) |
-| 8000 - 8199 | [Curl errors](#curl-errors-curl) |
+| Error Code | Description                         |
+|------------|-------------------------------------|
+| 2137-4501  | unexpected-error                    |
+| 2137-4502  | api-not-found                       |
+| 2137-4503  | communication-failed                |
+| 2137-4504  | invalid-params                      |
+| 2137-4505  | invalid-auth-token                  |
+| 2137-4506  | resource-not-found                  |
+| 2137-4508  | device-registration-limit-reached   |
+| 2137-4509  | invalid-nearness-check-result       |
+| 2137-4510  | operation-not-allowed               |
+| 2137-4511  | invalid-certificate                 |
+| 2137-4512  | direct-message-failed               |
+| 2137-4513  | direct-message-receiver-is-offline  |
+| 2137-4514  | invalid-account-config-payload      |
+| 2137-4515  | device-unregistration-limit-reached |
+| 2137-4516  | invalid-migration-state             |
+| 2137-4517  | vermillion-app-call-failed          |
+| 2137-4518  | atums-call-failed                   |
+| 2137-4519  | dragons-call-failed                 |
+| 2137-4520  | pegasus-call-failed                 |
+| 2137-4521  | baas-call-failed                    |
+| 2137-4522  | penne-call-failed                   |
+| 2137-4523  | nas-call-failed                     |
 
-## Curl Errors (HTTP)
+# HTTP Error Codes
+
+| Error Codes | Description                        |
+|-------------|------------------------------------|
+| 0100 - 0599 | [HTTP errors](#http-errors-status) |
+| 8000 - 8199 | [Curl errors](#http-errors-curl)   |
+
+## HTTP Errors (Status)
 
 | Error Code | HTTP status                           |
 |------------|---------------------------------------|
@@ -363,7 +549,7 @@ These errors are related to the [Switch account server](/docs/switch/baas).
 | 2155-0598  | Invalid (5xx)                         |
 | 2155-0599  | Invalid                               |
 
-## Curl Errors (Curl)
+## HTTP Errors (Curl)
 
 | Error Code | Description                                |
 |------------|--------------------------------------------|
@@ -463,9 +649,10 @@ The following errors are shown when the [DAuth server](/docs/switch/dauth) retur
 | 2181-4007 | 0007 | System update is required.    |
 | 2181-4008 | 0008 | Device has been banned.       |
 | 2181-4009 | 0009 | Internal Server Error.        |
-| 2181-4010 | 0010 |                               |
-| 2181-4011 | 0011 |                               |
-| 2181-4013 | 0013 |                               |
+| 2181-4010 | 0010 | Under maintenance.            |
+| 2181-4011 | 0011 | Invalid client.               |
+| 2181-4012 | 0012 | API not found.                |
+| 2181-4013 | 0013 | Invalid certificate.          |
 | 2181-4014 | 0014 | Invalid parameter in request. |
 | 2181-4015 | 0015 | Invalid parameter in request. |
 | 2181-4016 | 0016 | Invalid parameter in request. |
@@ -837,7 +1024,132 @@ The following errors are shown when the [dragons server](/docs/switch/dragons) r
 | 2306-0510       | The destination Station did not authenticate itself properly.                                                                                                                                       |
 | 2306-0511       | 3rd-party server or device answered with an error code according to protocol used e.g. HTTP error code                                                                                              |
 
-# PIA Error Codes
+# Pia Error Codes (New)
+
+| Error Code | Name                                                      |
+|------------|-----------------------------------------------------------|
+| 2318-0001  | AllocationFailed                                          |
+| 2318-0002  | AlreadyInitialized                                        |
+| 2318-0003  | BufferShortage                                            |
+| 2318-0004  | BrokenData                                                |
+| 2318-0005  | Cancelled                                                 |
+| 2318-0006  | NetworkConnectionIsLost                                   |
+| 2318-0007  | InvalidArgument                                           |
+| 2318-0008  | InvalidState                                              |
+| 2318-0009  | NoData                                                    |
+| 2318-0010  | NotFound                                                  |
+| 2318-0011  | NotImplemented                                            |
+| 2318-0012  | NotInitialized                                            |
+| 2318-0013  | BufferIsFull                                              |
+| 2318-0014  | TimeOut                                                   |
+| 2318-0015  | AlreadyExists                                             |
+| 2318-0016  | ContainerIsFull                                           |
+| 2318-0017  | TemporaryUnavailable                                      |
+| 2318-0019  | NotSet                                                    |
+| 2318-0030  | SocketAddressFamilyIncompatible                           |
+| 2318-0031  | NetworkConnectionIsLostDuringNatTraversalProcess          |
+| 2318-0101  | MemoryLeak                                                |
+| 2318-0102  | NetworkInterfaceIsNotFound                                |
+| 2318-0103  | UnexpectedNetworkInterfaceAddress                         |
+| 2318-0201  | NatCheckCommunicationFailed                               |
+| 2318-0202  | InUsed                                                    |
+| 2318-0203  | NatCheckDnsFailed                                         |
+| 2318-0204  | MonitoringDnsFailed                                       |
+| 2318-0302  | InvalidNode                                               |
+| 2318-0304  | NegligibleFault                                           |
+| 2318-0305  | InvalidConnection                                         |
+| 2318-0308  | LocalCommunicationInvalidState                            |
+| 2318-0309  | NetworkIsNotFound                                         |
+| 2318-0310  | NetworkIsFull                                             |
+| 2318-0311  | LocalCommunicationLowerVersion                            |
+| 2318-0312  | LocalCommunicationHigherVersion                           |
+| 2318-0313  | WifiOff                                                   |
+| 2318-0314  | Sleep                                                     |
+| 2318-0315  | WirelessControllerCountLimitation                         |
+| 2318-0317  | NetworkConnectionRejected                                 |
+| 2318-0401  | ConnectionFailed                                          |
+| 2318-0402  | CreateStationFailed                                       |
+| 2318-0403  | VersionMismatched                                         |
+| 2318-0404  | IsNotInCommunication                                      |
+| 2318-0405  | TableIsFull                                               |
+| 2318-0406  | IncreaseDataSize                                          |
+| 2318-0501  | RequestDenied                                             |
+| 2318-0502  | StationConnectionFailed                                   |
+| 2318-0506  | MeshIsFull                                                |
+| 2318-0507  | InvalidMessage                                            |
+| 2318-0510  | NatTraversalFailedUnknown                                 |
+| 2318-0513  | NatTraversalFailedLocalEim                                |
+| 2318-0514  | NatTraversalFailedLocalEdm                                |
+| 2318-0515  | NatTraversalFailedLocalEimSamePublicAddress               |
+| 2318-0516  | NatTraversalFailedLocalEdmSamePublicAddress               |
+| 2318-0521  | NatTraversalRequestTimeout                                |
+| 2318-0522  | NatTraversalFailedByDuplicateGlobalAddress                |
+| 2318-0533  | JoinSessionFailedByNetworkConnectionTimeout               |
+| 2318-0534  | JoinSessionFailedByHostMigration                          |
+| 2318-0535  | JoinSessionFailedByNetworkHostMigration                   |
+| 2318-0536  | JoinSessionFailedBySystemDeniedResponse                   |
+| 2318-0537  | JoinSessionFailedByLocalStationNotFound                   |
+| 2318-0539  | JoinSessionFailedByCreateStation                          |
+| 2318-0540  | JoinSessionFailedByDuplicateConstantId                    |
+| 2318-0541  | SessionIsNotFound                                         |
+| 2318-0542  | RoomIsFull                                                |
+| 2318-0543  | DeniedByParticipant                                       |
+| 2318-0544  | ParticipantInBlocklist                                    |
+| 2318-0545  | SessionUserPasswordUnmatch                                |
+| 2318-0546  | SessionSystemPasswordUnmatch                              |
+| 2318-0547  | MeshConnectionIsLost                                      |
+| 2318-0548  | SessionIsClosed                                           |
+| 2318-0549  | CompanionStationIsOffline                                 |
+| 2318-0550  | HostIsNotFriend                                           |
+| 2318-0551  | SessionConnectionIsLost                                   |
+| 2318-0552  | CompanionStationIsLeft                                    |
+| 2318-0554  | SessionMigrationFailed                                    |
+| 2318-0555  | SessionWrongState                                         |
+| 2318-0557  | JoinSessionFailedByNetworkConnectionIsLostOnJoinRequest   |
+| 2318-0561  | MatchmakeServerMaintenance                                |
+| 2318-0562  | MatchmakeServerProcessAborted                             |
+| 2318-0563  | SessionConnectionIsLostByHost                             |
+| 2318-0564  | SessionConnectionIsLostByHostMigrationFailure             |
+| 2318-0565  | SessionConnectionIsLostByInconsistentInfo                 |
+| 2318-0566  | KickedOutFromSessionByInconsistentInfo                    |
+| 2318-0567  | KickedOutFromSessionByUser                                |
+| 2318-0571  | CreateCommunityFailedUpperLimit                           |
+| 2318-0572  | JoinCommunityFailedUpperLimit                             |
+| 2318-0573  | CommunityIsFull                                           |
+| 2318-0574  | CommunityIsNotFound                                       |
+| 2318-0575  | CommunityIsClosed                                         |
+| 2318-0576  | CommunityUserPasswordUnmatch                              |
+| 2318-0577  | AlreadyJoinedCommunity                                    |
+| 2318-0578  | UserAccountNotExisted                                     |
+| 2318-0579  | DuplicateConstantId                                       |
+| 2318-0590  | LicenseForNetworkServiceNotAvailable                      |
+| 2318-0591  | LicenseForNetworkServiceError                             |
+| 2318-0592  | LicenseForNetworkServiceSubscriptionError                 |
+| 2318-0593  | LicenseForNetworkServiceSubscriptionError2                |
+| 2318-0602  | SyncDataIsNotArrivedYet                                   |
+| 2318-0606  | SyncDataIsNotSet                                          |
+| 2318-0701  | SystemLowerVersion                                        |
+| 2318-0702  | SystemHigherVersion                                       |
+| 2318-0802  | InvalidClock                                              |
+| 2318-1001  | SdkError                                                  |
+| 2318-1003  | CancelledByUser                                           |
+| 2318-1101  | OutOfMemory                                               |
+| 2318-1102  | LoginTimeout                                              |
+| 2318-1103  | AlreadyLoggedIn                                           |
+| 2318-1104  | MatchmakeServerAuthenticationFailed                       |
+| 2318-1105  | MatchmakeServerAuthenticationFailedByCommunicationVersion |
+| 2318-1106  | MatchmakeServerInvalidClientCommunicationVersion          |
+| 2318-1107  | MatchmakeServerInvalidServerCommunicationVersion          |
+| 2318-1200  | TurnDnsFailed                                             |
+| 2318-1201  | SignalingServerProcessTimeout                             |
+| 2318-1202  | TurnServerProcessTimeout                                  |
+| 2318-1203  | TurnFailedByDuplicateMappedAddress                        |
+| 2318-1500  | MatchmakeServerConnectionFailed                           |
+| 2318-1501  | MatchmakeServerProcessTimeout                             |
+| 2318-1502  | MatchmakeServerServiceClientError                         |
+| 2318-1800  | InvalidSocketError                                        |
+
+# PIA Error Codes (Old)
 
 | Error Code | Name                                                       |
 |------------|------------------------------------------------------------|

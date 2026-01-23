@@ -31,11 +31,15 @@ Here is an example: `NintendoSDK Firmware/15.0.0-4.0 (platform:NX; did:6265ca407
 | GET    | `/v1/policy.json` |
 | GET    | `/v2/policy.json` |
 | GET    | `/v3/policy.json` |
+| GET    | `/v4/policy.json` |
+| GET    | `/v5/policy.json` |
 
 | System version  | API version |
 |-----------------|-------------|
 | 14.0.0 - 14.1.2 | v2          |
 | 15.0.0 - 18.1.0 | v3          |
+| 20.0.0 - 20.1.5 | v4          |
+| 20.2.0 - 21.0.1 | v5          |
 
 | Param   | Description                                                                                                        |
 |---------|--------------------------------------------------------------------------------------------------------------------|
@@ -74,5 +78,33 @@ Response for `v3`:
   ],
   "uuid": "2cd1b8b6-c1e7-4238-96c3-0e18ec9c2945",
   "ttl": 86400
+}
+```
+
+Response for `v4`:
+
+```json
+{
+  "weights": [
+    {"vendor": "akamai", "weight":50},
+    {"vendor": "fastly", "weight":50},
+    {"vendor": "cloudflare", "weight":0}
+  ],
+  "uuid": "0a3a7f5b-399b-401b-a71c-02aa0b4ffe4c",
+  "ttl": 300
+}
+```
+
+Response for `v5`:
+
+```json
+{
+  "weights": [
+    {"vendor": "akamai", "weight":50},
+    {"vendor": "fastly", "weight":50},
+    {"vendor": "cloudflare", "weight":0}
+  ],
+  "uuid": "e324921d-d8de-4ed5-9f81-fb5ca8789cf7",
+  "ttl": 60
 }
 ```
