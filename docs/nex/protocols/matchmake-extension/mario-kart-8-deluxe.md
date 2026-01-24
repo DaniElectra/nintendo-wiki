@@ -196,10 +196,10 @@ This method does not take any parameters.
 
 Revision 1:
 
-| Type       | Description             |
-|------------|-------------------------|
-| Uint32     | Liveliness rate         |
-| [DateTime] | Liveliness update tiime |
+| Type       | Description            |
+|------------|------------------------|
+| Uint32     | Liveliness rate        |
+| [DateTime] | Liveliness update time |
 
 ### SimpleSearchDateTimeAttribute ([Structure])
 
