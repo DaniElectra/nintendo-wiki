@@ -142,7 +142,7 @@ In NEX version 3.0, one more field was added:
 | ------ | ----------------- |
 | Uint32 | m_SelectionMethod |
 
-In NEX version 3.4, one more field was added:
+In NEX version 3.4.6, one more field was added:
 
 | Type   | Name                 |
 | ------ | -------------------- |
@@ -309,12 +309,17 @@ In NEX version 4.0, the codeword was added:
 
 ## ParticipantDetails ([Structure])
 
-| Type     | Name             |
-| -------- | ---------------- |
-| [PID]    | m_idParticipant  |
-| [String] | m_strName        |
-| [String] | m_strMessage     |
-| Uint16   | m_uiParticipants |
+| Type     | Name            |
+| -------- | --------------- |
+| [PID]    | m_idParticipant |
+| [String] | m_strName       |
+| [String] | m_strMessage    |
+
+In NEX version 3.4.6, one more field was added:
+
+| Type   | Name             |
+| ------ | ---------------- |
+| Uint16 | m_uiParticipants |
 
 ## DeletionEntry ([Structure])
 
